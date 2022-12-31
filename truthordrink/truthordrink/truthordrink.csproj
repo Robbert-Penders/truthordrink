@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Manage Questions.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Manage Questions.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\fonts\Poppins-Black.ttf" />
+    <None Remove="Resources\fonts\Poppins-BlackItalic.ttf" />
+    <None Remove="Resources\fonts\Poppins-Bold.ttf" />
+    <None Remove="Resources\fonts\Poppins-BoldItalic.ttf" />
+    <None Remove="Resources\fonts\Poppins-ExtraBold.ttf" />
+    <None Remove="Resources\fonts\Poppins-ExtraBoldItalic.ttf" />
+    <None Remove="Resources\fonts\Poppins-ExtraLight.ttf" />
+    <None Remove="Resources\fonts\Poppins-ExtraLightItalic.ttf" />
+    <None Remove="Resources\fonts\Poppins-Italic.ttf" />
+    <None Remove="Resources\fonts\Poppins-Light.ttf" />
+    <None Remove="Resources\fonts\Poppins-LightItalic.ttf" />
+    <None Remove="Resources\fonts\Poppins-Medium.ttf" />
+    <None Remove="Resources\fonts\Poppins-MediumItalic.ttf" />
+    <None Remove="Resources\fonts\Poppins-Regular.ttf" />
+    <None Remove="Resources\fonts\Poppins-SemiBold.ttf" />
+    <None Remove="Resources\fonts\Poppins-SemiBoldItalic.ttf" />
+    <None Remove="Resources\fonts\Poppins-Thin.ttf" />
+    <None Remove="Resources\fonts\Poppins-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\fonts\Poppins-Black.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-BlackItalic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-Bold.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-BoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-ExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-ExtraLight.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-Italic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-Light.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-LightItalic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-Medium.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-MediumItalic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-Regular.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-SemiBold.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-Thin.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Poppins-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\media\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AddQuestions.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CreateAccount.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CreateGame.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ForgotPassword.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Game.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LandingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ManageQuestions.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

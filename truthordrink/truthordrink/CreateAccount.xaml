@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="truthordrink.CreateAccount">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Image Margin="0, 40, 0, 0" WidthRequest="100" Source="logo.png"/>
+            <Label Text="TRUTH OR DRINK" HorizontalTextAlignment="Center" TextColor="#2f3542" FontFamily="PoppinsBold" FontSize="36" Margin="0, 10, 0, 0"/>
+
+
+            <StackLayout Margin="30, 50, 30, 0">
+                <Label Text="Create an account" HorizontalTextAlignment="Left" TextColor="#2f3542" FontFamily="Poppins" FontSize="36" Margin="0, 0, 0, 0"/>
+                <Entry x:Name="emailEntry" Placeholder="Email address"/>
+                <Label x:Name="emailError" Padding="5, 0, 0, 0" Text="" TextColor="Red"></Label>
+                <Entry x:Name="passEntry" Placeholder="Password" IsPassword="True"/>
+                <Label x:Name="passError" Padding="5, 0, 0, 0" Text="" TextColor="Red"></Label>
+                <Button x:Name="createAccountButton" Text="Create account" CornerRadius="5" BackgroundColor="#03a9f4" TextColor="#FFFFFF" Margin="0,10,0,0" Clicked="createAccountButton_Clicked" />
+                <Label Text="Already have an acount?" HorizontalTextAlignment="Center" Margin="0,35,0,0"/>
+                <Button x:Name="signInButton" Text="Sign In" TextColor="#03a9f4" Margin="0,-10,0,0" BackgroundColor="Transparent" Clicked="signInButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

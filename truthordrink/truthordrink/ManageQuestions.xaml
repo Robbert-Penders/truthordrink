@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="truthordrink.ManageQuestions">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Image Margin="0, 40, 0, 0" WidthRequest="100" Source="logo.png"/>
+            <Label Text="TRUTH OR DRINK" HorizontalTextAlignment="Center" TextColor="#2f3542" FontFamily="PoppinsBold" FontSize="36" Margin="0, 10, 0, 0"/>
+
+            <StackLayout Margin="30, 50, 30, 0">
+                <Label Text="Manage question sets" HorizontalTextAlignment="Center" TextColor="#2f3542" FontFamily="Poppins" FontSize="28" Margin="0, 30, 0, 0" />
+                <Label Text="SelectQuestionPicker" />
+                <Picker x:Name="Customquestions" />
+                <Label x:Name="Idlabel"/>
+                <Entry x:Name="QuestionBodyEntry"/>
+                <ListView x:Name="QuestionListView" ItemSelected="QuestionListView_ItemSelected">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Questionbody}" TextColor="Black"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="UpdateButton" Text="Update" Clicked="UpdateButton_Clicked"/>
+                    <Button x:Name="DeleteButton" Text="Delete" Clicked="DeleteButton_Clicked"/>
+                </StackLayout>
+
+
+
+                <Button x:Name="Newset" Text="New set" TextColor="#03a9f4" Margin="0,10,0,0" BackgroundColor="Transparent" Clicked="Newset_Clicked" />
+
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

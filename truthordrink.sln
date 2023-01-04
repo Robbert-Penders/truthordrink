@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "truthordrink.Android", "tru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "truthordrink.iOS", "truthordrink\truthordrink.iOS\truthordrink.iOS.csproj", "{4D7B3DB4-AF2D-42A8-8542-F4B3A1BAAEB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "truthordrink", "truthordrink\truthordrink\truthordrink.csproj", "{B13DE712-2671-4F8B-9707-93B385B262E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "truthordrink", "truthordrink\truthordrink\truthordrink.csproj", "{B13DE712-2671-4F8B-9707-93B385B262E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09A3FA74-F468-4CEA-857A-9526361DD2E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

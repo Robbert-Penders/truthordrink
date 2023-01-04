@@ -22,14 +22,14 @@ namespace truthordrink
             }
 
         }
-        //public ManageQuestions(Question selectedquestion)
-        //{
-        //    InitializeComponent();
-        //    question = selectedquestion;
+        public ManageQuestions(Question selectedquestion)
+        {
+            InitializeComponent();
+            question = selectedquestion;
 
-        //    Idlabel.Text = question.id.ToString();
-        //    QuestionBodyEntry.Text = question.Questionbody;
-        //}
+            Idlabel.Text = question.id.ToString();
+            QuestionBodyEntry.Text = question.Questionbody;
+        }
 
         private async void Newset_Clicked(object sender, EventArgs e)
         {

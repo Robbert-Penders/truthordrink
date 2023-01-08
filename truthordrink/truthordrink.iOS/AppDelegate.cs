@@ -24,10 +24,7 @@ namespace truthordrink.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            string dbname = "test_db.sqlite";
-            string folderpath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string fullpath = Path.Combine(folderpath, dbname);
-            LoadApplication(new App(fullpath));
+            LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

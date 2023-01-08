@@ -9,7 +9,7 @@
 
             <StackLayout Margin="30, 50, 30, 0" HorizontalOptions="Center">
                 <Label Text="What would you like to do?" HorizontalTextAlignment="Center" TextColor="#2f3542" FontFamily="Poppins" FontSize="28" Margin="0, 0, 0, 0"/>
-                <Button x:Name="CreateGameButton" Text="Create a game" CornerRadius="5" BackgroundColor="#03a9f4" TextColor="#FFFFFF" Margin="0,30,0,0" Clicked="CreateGameButton_Clicked"/>
+                <Button x:Name="CreateGameButton" Text="Start game" CornerRadius="5" BackgroundColor="#03a9f4" TextColor="#FFFFFF" Margin="0,30,0,0" Clicked="CreateGameButton_Clicked"/>
                 <Button x:Name="ManageQuestionButton" Text="Manage question sets" CornerRadius="5" BackgroundColor="#03a9f4" TextColor="#FFFFFF" Margin="0,20,0,0" Clicked="ManageQuestionButton_Clicked"/>
             </StackLayout>
             

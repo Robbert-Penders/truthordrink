@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -13,11 +14,23 @@ namespace truthordrink
     public partial class CreateAccount : ContentPage
 
     {
-        private readonly string email = "admin";
-        private readonly string password = "admin";
+        private readonly Regex emailReg = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        public bool ValidateEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+            return emailReg.IsMatch(email);
+        }
+
         public CreateAccount()
         {
             InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            App.Unauthenticate();
         }
 
         private async void signInButton_Clicked(object sender, EventArgs e)
@@ -27,17 +40,37 @@ namespace truthordrink
 
         private async void createAccountButton_Clicked(object sender, EventArgs e)
         {
-            if (emailEntry.Text == "admin" && passEntry.Text =="admin") 
-            {
-                await DisplayAlert("verification link sent", "We have sent an email containing a verification link to enable your account.", "proceed");
-                await Navigation.PopAsync();
+            bool failed = false;
 
-            }
-            else
+            if (!ValidateEmail(emailEntry.Text))
             {
-                await DisplayAlert("Request failed", "you have enterd invalid credentials.", "Retry");
+                emailError.Text = "Enter a valid email address";
+                failed = true;
             }
-            
+
+            if (String.IsNullOrEmpty(passEntry.Text))
+            {
+                passError.Text = "Enter a valid password";
+                failed = true;
+            }
+
+            if (failed) return;
+
+            var userResult = await App.Database.GetUserAsync(emailEntry.Text);
+            if (userResult != null)
+            {
+                await DisplayAlert("Email In Use", "This email has already been registered", "Try another email");
+                return;
+            }
+
+            var newUser = new Model.User
+            {
+                Email = emailEntry.Text,
+                Password = passEntry.Text,
+            };
+            App.Authenticate(newUser);
+            await App.Database.SaveUserAsync(newUser);
+            await Navigation.PushAsync(new LandingPage());
         }
     }
 }

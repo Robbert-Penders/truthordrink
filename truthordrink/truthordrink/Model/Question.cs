@@ -12,8 +12,9 @@ namespace truthordrink.Model
     {
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }
+        public int userId { get; set; }
 
         [MaxLength(200)]
-        public string Questionbody{ get; set;}
+        public string question{ get; set;}
     }
 }

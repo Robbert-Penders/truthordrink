@@ -18,11 +18,7 @@ namespace truthordrink.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
-            string dbname = "test_db.sqlite";
-            string folderpath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string fullpath = Path.Combine(folderpath, dbname);
-            LoadApplication(new App(fullpath));
+            LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

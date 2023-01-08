@@ -20,33 +20,20 @@ namespace truthordrink
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
-            Question question = new Question();
-            question.Questionbody = QuestionEntry.Text;
-
-            SQLiteConnection sQLiteConnection = new SQLiteConnection(App.Databaselocation);
-            sQLiteConnection.CreateTable<Question>();
-            int insertedrows = sQLiteConnection.Insert(question);
-            sQLiteConnection.Close();
-
-            if(insertedrows > 0)
-            {
-                await DisplayAlert("Succesfull", "added question", "ok");
+            if (String.IsNullOrEmpty(QuestionEntry.Text)) {
+                await DisplayAlert("Enter a question", "This field cannot be empty.", "Try again");
+                return;
             }
-            else
+
+            if (!App.IsAuthenticated()) return;
+
+            await App.Database.SaveQuestionAsync(new Question
             {
-                await DisplayAlert("Failed", "something went wrong", "Try again");
-            }
+                userId= App.GetAuthenticatedUserId(),
+                question = QuestionEntry.Text,
+            });
 
             await Navigation.PopAsync();
-        }
-        private void QuestionListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var selectedquestion = QuestionListView.SelectedItem as Question;
-            if (selectedquestion != null)
-            {
-                Navigation.PushAsync(new ManageQuestions(selectedquestion));
-            }
-
         }
     }
 }

@@ -6,9 +6,22 @@
         <StackLayout BackgroundColor="White">
             <Image Margin="0, 40, 0, 0" WidthRequest="100" Source="logo.png"/>
             <Label Text="TRUTH OR DRINK" HorizontalTextAlignment="Center" TextColor="#2f3542" FontFamily="PoppinsBold" FontSize="36" Margin="0, 10, 0, 0"/>
+            <Label HorizontalTextAlignment="Center" Text="Awaiting cocktail.." x:Name="drinkLabel"/>
 
-            
-                
+            <Label Margin="20,40,20,40" x:Name="currentQuestion" Text="" FontSize="40" HorizontalTextAlignment="Center" TextColor="Black"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Grid HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="truthButton" BackgroundColor="#be2edd" Grid.Column="0" Text="TRUTH" TextColor="White" Clicked="truthButton_Clicked"/>
+                    <Button x:Name="drinkButton" BackgroundColor="#eb4d4b" Grid.Column="1" Text="DRINK"  TextColor="White" Clicked="drinkButton_Clicked"/>
+                </Grid>
+            </StackLayout>
+
+            <Button x:Name="speechButton" Text="Say question out loud" TextColor="#03a9f4" Margin="0,10,0,0" BackgroundColor="Transparent" Clicked="speechButton_Clicked"/>
         </StackLayout>
 
     </ContentPage.Content>

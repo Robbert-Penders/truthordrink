@@ -11,25 +11,7 @@
                 <Label Text="Enter new question" />
                 <Entry x:Name="QuestionEntry" Placeholder="Max 200 characters"/>
                 <Button x:Name="SaveButton" Text="Save" Clicked="SaveButton_Clicked"/>
-
-                <ListView x:Name="QuestionListView" ItemSelected="QuestionListView_ItemSelected">
-
-                    <ListView.ItemTemplate>
-
-                        <DataTemplate>
-                            <TextCell Text="{Binding Questionbody}" TextColor="Black"/>
-                        </DataTemplate>
-
-
-                    </ListView.ItemTemplate>
-
-
-                </ListView>
             </StackLayout>
-            
-
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

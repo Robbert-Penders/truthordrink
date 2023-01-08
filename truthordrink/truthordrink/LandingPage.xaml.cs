@@ -21,15 +21,12 @@ namespace truthordrink
 
         private async void CreateGameButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CreateGame());
+            await Navigation.PushAsync(new Game());
         }
 
         private async void ManageQuestionButton_Clicked(object sender, EventArgs e)
         {
-            Question q = new Question();
-            q.id = 1;
-            q.Questionbody = "yes";
-           await Navigation.PushAsync(new ManageQuestions(q));
+           await Navigation.PushAsync(new ManageQuestions());
         }
     }
 

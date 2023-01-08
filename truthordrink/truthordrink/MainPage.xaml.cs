@@ -12,8 +12,6 @@ namespace truthordrink
 {
     public partial class MainPage : ContentPage
     {
-        private readonly string email = "admin@admin.com";
-        private readonly string password = "admin";
         private readonly Regex emailReg = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         public MainPage()
         {
@@ -24,6 +22,12 @@ namespace truthordrink
             if (string.IsNullOrWhiteSpace(email))
                 return false;
             return emailReg.IsMatch(email);
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            App.Unauthenticate();
         }
 
         private async void login_Clicked(object sender, EventArgs e)
@@ -39,19 +43,26 @@ namespace truthordrink
             if (String.IsNullOrEmpty(passEntry.Text))
             {
                 passError.Text = "Enter a valid password";
-                failed= true;
+                failed = true;
             }
 
             if (failed) return;
 
-            if (emailEntry.Text == email && passEntry.Text == password)
+            var userResult = await App.Database.GetUserAsync(emailEntry.Text);
+            if (userResult == null)
             {
+                await DisplayAlert("Incorrect Email", "This email has not been registered", "Try again");
+                return;
+            }
+
+            if (userResult.Password == passEntry.Text)
+            {
+                App.Authenticate(userResult);
                 await Navigation.PushAsync(new LandingPage());
             }
             else
             {
-                await DisplayAlert("Login Failed", "You have entered invalid credentials", "Try again");
-
+                await DisplayAlert("Incorrect Password", "You have entered an invalid password", "Try again");
             }
         }
 

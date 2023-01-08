@@ -50,9 +50,16 @@ namespace truthordrink
             return _database.InsertAsync(question);
         }
 
+        public Task<int> UpdateQuestionAsync(Question question)
+        {
+            return _database.UpdateAsync(question);
+        }
+
         public Task<int> DeleteQuestionAsync(Question question)
         {
             return _database.DeleteAsync(question);
         }
+
+        
     }
 }
